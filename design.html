@@ -104,7 +104,7 @@
                 <div class="col-lg-9">
                   <h6 class="big-heading">We first calculate the desired angle. We can do so for the yaw using the pose given to us by the OpenCV library. The calculation of the pitch angle has a much more arbitrary solution, since for most angles one could 
                       adjust their velocity so as to hit the target. Since there are multiple solution, we chose to calculate for angle that requires the minimum velocity (we are incorrectly assuming ball launch velocity is the same as tangential velocity of the wheels) in order to hit the target. This is both for safety and out of concern our original brushless motors were strong enough.
-                      We found this pitch by simply taking the derivative of the kinematics equations and setting it to zero. We made an attempt at formulating a convex optimization problem for this, in order to find the minimum velocity when the theoretically optimal pitch is out of range
+                      We found this pitch by simply taking the derivative of the kinematics equations and setting it to zero. We made an attempt at formulating a <a href="files/optimization.pdf" target="_blank">convex optimization</a> problem for this, in order to find the minimum velocity when the theoretically optimal pitch is out of range
                       our robot, but ended up with a non convex problem that we are not sure how to relax. Details for that work are in the appendix, but we simply ended up hoping the theoretically optimal angle was always in range.
                     </h6>
                     <h6> 
@@ -130,13 +130,6 @@
                           <br>
                           Furthermore, we also have the shooter wheels which would have served as another source of sensing and actuation, as we would have needed to use encoders in order to control their speed accurately and most likely
                           some control system like a PID loop. Due to the late change into using brushed motors, however, we were unable to begin implementing this due to limited time.
-                          <br>
-                          These are some links that we used to assist us with the coding where we used some of the code provided: 
-                          https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/arduino-code
-
-                          https://www.handsontec.com/dataspecs/module/7A-160W%20motor%20control.pdf
-
-                   
 
                       </h6>
                       
