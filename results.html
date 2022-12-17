@@ -52,6 +52,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="appendix.html">Appendix</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="gallery.html">Photo Gallery</a>
+              </li>
             </ul>
   
           </div>
@@ -74,25 +77,28 @@
           
           <div class="col-lg-12">
             <h6 class="big-heading">Building your own robot is rewarding, but very difficult. 
-              <p>
-                We spent a lot of time designing, fabricating, and assembling our robot. We consider its mechanical design to be mostly a success. Some of the cool mechical/design features include the turnbuckle that allows us to change the distance between the shooter wheel and adjust compression of the soccer ball.
+              <h6 class="big-heading">
+                We most of time designing, fabricating, and assembling our robot. We consider its mechanical design to be mostly a success. Some of the cool mechical/design features include the turnbuckle that allows us to change the distance between the shooter wheels and adjust compression of the soccer ball.
                 There were also 3D printed parts that needed to attach to threaded components. Due to the unreliability of a plastic thread, we decided to insert nuts into the parts during printing.
-                The pulley and chain need the right amount of tension, so we design slots into our laser cut pieces in order to make these adjustable. However, these parts presented with some difficulties. In particular, many of these adjustable pieces were very sensitive to vibration. More urgently,
-                our project resulted in lots of broken motors. This makes us wonder whether our mechanical design inherently places lots of stress on the actuator.
-              </p>
+                The pulley and chain need the right amount of tension, so we design slots into our laser cut pieces in order to make these adjustable. However, these parts presented with some difficulties. In particular, many of these adjustable pieces were very sensitive to vibration and required frequent retightening. More importatly, our project has burnt out many motors. This makes us wonder whether our mechanical design inherently places lots of stress on the actuator.
+              </h6>
                           
-             <p> 
+             <h6 class="big-heading"> 
               For the electronics, we were initially using brushless motors with a custom designed controller PCB and gearbox that were kindly provided to us by the Hybrid Robotics Lab. However, we were suddenly unable to communicate with these motors through CAN the day before our presentation. A friend of ours generously loaned us NEMA 17 stepper motors.
-              We were unfamiliar with using stepper motor drivers but eventually managed to control them. This particular model was not able to provide enough torque, as can be  
-              However, at the last second our motor drivers and cnc shield also gave out. We then resorted to disassembling Sebastian's 3D printer to use the 
-              3D printer controller board to control the stepper motors. We also needed motors for shooting without access to the lab's. For this, 
-              we bought brushed motors to get the , which came with a different set of encoders and challenges. With every change in motors, we also had to change the way we communicated with our sensors. For example, with the original cnc shield, we were using python and openCV to get vision data and then using PySerial to 
-              communicate this data to the arduino, where all of our control logic was. However, once we changed to the 3D Printer board, we didn't have time to write new firmware, so we had to do our control logic in python and communicate with the 3D printer board over serial using its existing set of commands.
-             </p>
-            <p>
-              In the end, we were able to change the pitch and yaw of the motors using the 3D printed board and spin the brushed motors, but our control does not work correctly for either of them. Given more time to complete the project we would buy another arduino cnc shield and develop that way.
+              We were unfamiliar with using stepper motor drivers but eventually managed to control them and attempted to present them, however this particular model was not able to provide enough torque to move the assembly. This can be heard in the sensing demo below. 
+             </h6>
+             <h6 class="big-heading">
+              We spent the last week of the semester integrating NEMA 23's: a stronger model of stepper motors. These were able to move the assembly and we made good progress with the integrating our generate angle python script with the Stepper.h arduino library. However, our CNC shield also seemed to burn out on December 15th. We then resorted to disassembling Sebastian's 3D printer to use the 
+              3D printer controller board to control the stepper motors. This caused issues that were not fixable within our tight timespan, as the 3D printer control board cannot control number of steps the same way that the CNC shield was able to.
+             </h6>
+              <h6 class="big-heading">
+              We also needed motors for shooting without access to the lab's. For this, 
+              we chose brushed motors instead of steppers because we needed speed and not accuracy. These motors came with a different set of encoders and challenges. We were able to develop a mechanical design that would attach them to the assembly, but we simply did not have the time to invest in both the brushed and stepper motors. We prioritized the latter, as the AR tracking better integrates sensing, planning, and actuation.
+              </h6>
+            <h6 class="big-heading">
+              In the end, we were able to change the pitch and yaw of the motors using the 3D printed board and spin the brushed motors, but our control does not work correctly for either of them. Given more time to complete the project we would buy another arduino cnc shield and develop that way or redesign our planning in order to use the 3D printer board.
               Hopefully this time we fix our electronics bugs and re-implement the control we had working initially.
-              </p>
+            </h6>
               
               <br>
               
