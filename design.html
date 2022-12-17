@@ -65,14 +65,22 @@
     <!-- Features -->
   
     <section class="white-section" id="features">
+      <h6 class="big-heading">
+            In Order to demonstrate our robot's ability to be a worthy adversary to the Hybrid Robotics goalie robot, we hoped to demonstrated its precision by having it shoot an AR tag as a target. 
+            Coincidentally, this also implements sensing, planning, and actuation.</br>
+      </h6>
   
       <div class="container-fluid">
         <h3 class="">Sensing</h2>
         <div class="row">
             
             <div class="col-lg-9">
-              <h6 class="big-heading">We used openCV to get the pose of our target from AR tag. We then calculated the transformation 
-                between our camera frame and the target frame. To get our robot's pitch and yaw angles we use an IMU and an Arduino.</br>
+              <h6 class="big-heading">In order to aim at the AR tag, our robot must understand its position relative to itself. This is where
+                  our main sensor, a camera, comes in. Using the OpenCV library we were able to 
+                  to get the pose of our target from the AR tag. We then calculated the transformation 
+                between our camera frame and the target frame. As an additional sensor, 
+                we also used an IMU get our robot's pitch and yaw angles. We initially implemented these because our chain and belt systems were prone to skipping on occassion, 
+                ruining the type of coordinate control that stepper motors usually allow 3D printers. However, there were some unforseen benefits to its implementation in the planning section.</br>
               </h6>
               
             </div>
@@ -81,7 +89,7 @@
               <img class="title-image2" src="images/opencv.png" alt="iphone-mockup">
             </div>
     
-          </div>  
+          </div> 
         </br> </br>
           <h3 class="">Planning</h2>
             <div class="row">
@@ -89,9 +97,12 @@
                     <img class="title-image2" src="images/prototype.png" alt="iphone-mockup">
                   </div>
                 <div class="col-lg-9">
-                  <h6 class="big-heading">We first calculate the desired pitch and yaw angles using kinematic formulas. To rotate pitch and yaw such that we are aiming correctly, we continuously rotate our stepper motors in the desired
-                    direction and check whether we have exceeded our goal every 200 cycles. We also implemented an alternate approach that involves calculating the required steps directly
-                    using information about the pitch of the lead screws and chain and sprocket. 
+                  <h6 class="big-heading">We first calculate the desired angle. We can do so for the yaw using the pose given to us by the OpenCV library. The calculation of the pitch angle has a much more arbitrary solution, since for most angles one could 
+                      adjust their velocity so as to hit the target. Since there are multiple solution, we chose to calculate for angle that requires the minimum velocity (we are incorrectly assuming ball launch velocity is the same as tangential velocity of the wheels) in order to hit the target. This is both for safety and out of concern our original brushless motors were strong enough.
+                      We found this pitch by simply taking the derivative of the kinematics equations and setting it to zero. We made an attempt at formulating a convex optimization problem for this, in order to find the minimum velocity when the theoretically optimal pitch is out of range
+                      our robot, but ended up with a non convex problem that we are not sure how to relax. Details for that work are in the appendix, but we simply ended up hoping the theoretically optimal angle was always in range.
+                    </h6>
+                    <h6> 
                   </h6>
                   
                 </div>
@@ -104,8 +115,17 @@
                 <div class="row">
                     
                     <div class="col-lg-12">
-                      <h6 class="big-heading">To change pitch and yaw we used two NEMA 23 Stepper motors. One rotates a sprocket and chain that connect to center of the launcher.
-                        another motor rotates the lead screws that raise and lower the pitch of the launching rails. To shoot the ball we used two DC Brush Motors.
+                      <h6 class="big-heading">Now that we have desired pitch and yaw angles, we have to get our robot into position. 
+                          We are using stepper motors to control these angles. One stepper motor rotates the base through a chain and sprocket, while the other drives a lead screw up and down in order to change the height of the second attachment point of the pitch assembly.
+                          We have two methods for controlling these motors, where the team disagrees on what the better approach is:
+                          One method is calculating the number of steps required in order to reach the desired angle from the current angle. There are more details about
+                          how we did this calculation in the appendix, but this method still requires an IMU because the geometry of the pitch actuation system means the difference in pitch angle per step of the leadscrew motor is
+                          different based on its current position. The second method is to continously poll the IMU and move a step until you are close enough to desired position. While this method takes longer,
+                          we have found its simplicity appealing in some scenarious, particularly debugging.
+                          <br>
+                          Furthermore, we also have the shooter wheels which would have served as another source of sensing and actuation, as we would have needed to use encoders in order to control their speed accurately and most likely
+                          some control system like a PID loop. Due to the late change into using brushed motors, however, we were unable to begin implementing this due to limited time.
+
                       </h6>
                       
                     </div>
