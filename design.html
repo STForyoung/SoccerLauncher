@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>SoccerLauncher</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <section class="colored-section" id="title">
+  
+      <div class="container-fluid2">
+  
+        <!-- Nav Bar -->
+  
+        <nav class="navbar navbar-expand-lg navbar-dark">
+  
+          <a class="navbar-brand" href="">SoccerLauncher</a>
+  
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+  
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Design</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="results.html">Results</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="appendix.html">Appendix</a>
+              </li>
+            </ul>
+  
+          </div>
+        </nav>
+  
+      </div>
+  
+    </section>
+  
+  
+    <!-- Features -->
+  
+    <section class="white-section" id="features">
+  
+      <div class="container-fluid">
+        <h3 class="">Sensing</h2>
+        <div class="row">
+            
+            <div class="col-lg-9">
+              <h6 class="big-heading">We used openCV to get the pose of our target from AR tag. We then calculated the transformation 
+                between our camera frame and the target frame. To get our robot's pitch and yaw angles we use an IMU and an Arduino.</br>
+              </h6>
+              
+            </div>
+    
+            <div class="col-lg-3">
+              <img class="title-image2" src="images/opencv.png" alt="iphone-mockup">
+            </div>
+    
+          </div>  
+        </br> </br>
+          <h3 class="">Planning</h2>
+            <div class="row">
+                <div class="col-lg-3">
+                    <img class="title-image2" src="images/prototype.png" alt="iphone-mockup">
+                  </div>
+                <div class="col-lg-9">
+                  <h6 class="big-heading">We first calculate the desired pitch and yaw angles using kinematic formulas. To rotate pitch and yaw such that we are aiming correctly, we continuously rotate our stepper motors in the desired
+                    direction and check whether we have exceeded our goal every 200 cycles. We also implemented an alternate approach that involves calculating the required steps directly
+                    using information about the pitch of the lead screws and chain and sprocket. 
+                  </h6>
+                  
+                </div>
+        
+                
+        
+              </div>  
+            </br> </br>
+              <h3 class="">Actuation</h2>
+                <div class="row">
+                    
+                    <div class="col-lg-12">
+                      <h6 class="big-heading">To change pitch and yaw we used two NEMA 23 Stepper motors. One rotates a sprocket and chain that connect to center of the launcher.
+                        another motor rotates the lead screws that raise and lower the pitch of the launching rails. To shoot the ball we used two DC Brush Motors.
+                      </h6>
+                      
+                    </div>
+            
+                  </div>  
+
+
+        
+  
+      </div>
+    </section>
+  
+
+  
+
+  
+  
+    <!-- Footer -->
+  
+    <footer class=" press" id="footer">
+        <div class="container-fluid">
+          <!-- <i class="social-icon fab fa-facebook-f"></i>
+          <i class="social-icon fab fa-twitter"></i>
+          <i class="social-icon fab fa-instagram"></i>
+          <i class="social-icon fas fa-envelope"></i> -->
+          <p>© Copyright 2022 SoccerLauncher</p>
+        </div>
+      </footer>
+    
+  
+  
+  </body>
+  
+  </html>
