@@ -77,15 +77,17 @@
               <p>
                 We spent a lot of time designing, fabricating, and assembling our robot. Some of the cool mechical/design features include the turnbuckle that allows us to change the distance between the shooter wheel and adjust compression of the soccer ball.
                 There were also 3D printed parts that needed to attach to threaded components. Due to the unreliability of a plastic thread, we decided to insert nuts into the parts during printing.
-                The pulley and chain and the right amount of tension, and we design slots into our laser cut pieces in order to make these adjustable. However these parts presented with some difficulties. In particular, many of these adjustable pieces were very sensitive to vibration.
+                The pulley and chain need the right amount of tension, so we design slots into our laser cut pieces in order to make these adjustable. However, these parts presented with some difficulties. In particular, many of these adjustable pieces were very sensitive to vibration. More urgently,
+                our project resulted in lots of broken motors. This makes us wonder whether our design inherently places lots of stress on the actuator.
               </p>
                           
              <p> 
-              We initially were using brushless motors with a custom designed controller PCB and gearbox that were kindly provided to us by the Hybrid Robotics Lab. However, we were suddenly unable to communicate with these motors through CAN the day before our presentation. A friend of ours generously loaned us NEMA 17 stepper motors.
+              Initially, we were using brushless motors with a custom designed controller PCB and gearbox that were kindly provided to us by the Hybrid Robotics Lab. However, we were suddenly unable to communicate with these motors through CAN the day before our presentation. A friend of ours generously loaned us NEMA 17 stepper motors.
               We were unfamiliar with using stepper motor drivers but eventually managed to control pitch and yaw according to our calculations. However, at the last second our motor drivers and cnc shield also gave out. We then resorted to disassembling Sebastian's 3D printer to use the 
-              3D printer controller board to controll the stepper motors. We also had to order new brushed motors to get the necessary RPM to shoot the soccer ball, which came with a different set of encoders and challenges. With every change in motors, we also had to change the way we communicated with our sensors. For example, with the original cnc shield, we were using python and openCV to get vision data and then using PySerial to 
+              3D printer controller board to control the stepper motors. We also needed motors for shooting. For this, we bought brushed motors to get the necessary RPM to shoot the soccer ball, which came with a different set of encoders and challenges. With every change in motors, we also had to change the way we communicated with our sensors. For example, with the original cnc shield, we were using python and openCV to get vision data and then using PySerial to 
               communicate this data to the arduino, where all of our control logic was. However, once we changed to the 3D Printer board, we didn't have time to write new firmware, so we had to do our control logic in python and communicate with the 3D printer board over serial using its existing set of commands.
-
+             </p>
+            <p>
               In the end, we were able to change the pitch and yaw of the motors using the 3D printed board and spin the brushed motors, but our control does not work correctly for either of them. Given more time to complete the project we would buy another arduino cnc shield and develop that way.
               Hopefully this time we fix our electronics bugs and re-implement the control we had working initially.
               </p>
@@ -117,10 +119,15 @@
             <h6 class="big-heading"> We learned a lot from this project. It was a truly memorable experience.
                </br>
             Special thanks: 
+            <br>
             Yufeng Chi and Zhongyu Li for all the support throughout the project. 
+            <br>
             Max Braunstein for helping with machining parts
+            <br>
             Thanh T. Tran for the original stepper motors setup
+            <br>
             Cody and Adam from Jacobs Hall Makerspace for help with fabrication.
+            <br>
 
             
             
